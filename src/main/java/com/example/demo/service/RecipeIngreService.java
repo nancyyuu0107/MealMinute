@@ -32,10 +32,10 @@ public class RecipeIngreService {
 	private RecipeIngreRepository recipeIngreRepo;
 
 	public RecipeIngredientBean saveIngreToRecipe(RecipeIngreDto dto) {
-		// 檢查是否已存在相同的配料記錄
+		// 檢查組合是否已經存在於資料庫中，避免重複保存相同的關聯數據。
 		if (recipeIngreRepo.existsByRecipeIngreId_RecipeIdAndRecipeIngreId_IngredientId(dto.getRecipeId(),
 				dto.getIngredientId())) {
-			// 如果存在，則直接返回 null
+			// 如果存在，則直接返回 null，避免重複的數據輸入
 			return null;
 		}
 

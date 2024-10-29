@@ -40,7 +40,7 @@ public class RecipeImgService {
 	private String domainUrl;
 
 	public RecipeImgBean saveRecipeImg(Integer recipeId, MultipartFile recipeImg) {
-		// 首先，我們需要獲取或創建 RecipeBean
+		
 		RecipeBean recipeBean = recipeRepo.findById(recipeId)
 				.orElseThrow(() -> new RuntimeException("Recipe not found with id: " + recipeId));
 
